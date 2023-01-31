@@ -16,7 +16,7 @@ const App = (): JSX.Element => {
   const getCategoryGif = async (category: string) => {
     const gifUrl = await getGif(category);
 
-    return gifUrl;
+    return gifUrl.data.images.original.url;
   };
 
   return (
