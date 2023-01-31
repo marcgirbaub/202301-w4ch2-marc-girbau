@@ -1,6 +1,10 @@
 import { SetStateAction, useState } from "react";
 
-const SearchForm = (): JSX.Element => {
+interface SearchFormProps {
+  getCategoryGif: (category: string) => void;
+}
+
+const SearchForm = ({ getCategoryGif }: SearchFormProps): JSX.Element => {
   const [category, setCategory] = useState<string>("");
 
   const changeCategory = (event: {
@@ -9,8 +13,13 @@ const SearchForm = (): JSX.Element => {
     setCategory(event.target.value);
   };
 
+  const handleFormSubmition = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    getCategoryGif(category);
+  };
+
   return (
-    <form className="search-form">
+    <form className="search-form" onSubmit={handleFormSubmition}>
       <div className="row">
         <label form="search" className="col-1 col-form-label">
           Search:{" "}

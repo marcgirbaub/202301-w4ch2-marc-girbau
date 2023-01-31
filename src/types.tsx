@@ -1,9 +1,11 @@
 export interface Gif {
   data: {
     images: {
-      url: string;
-      height: number;
-      widht: number;
+      original: {
+        url: string;
+        height: number;
+        width: number;
+      };
     };
   };
 }
