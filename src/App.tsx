@@ -1,7 +1,7 @@
 import { useState } from "react";
+import ErrorDisplay from "./components/ErrorDisplay/ErrorDisplay";
 import ImageDisplay from "./components/ImageDisplay/ImageDisplay";
 import SearchForm from "./components/SearchForm/SearchForm";
-import "./styles.css";
 
 const App = (): JSX.Element => {
   const [category, setCategory] = useState<string>("");
@@ -23,9 +23,7 @@ const App = (): JSX.Element => {
         <ImageDisplay />
       </div>
       <div className="row">
-        <p className="error text-danger col">
-          Error: I couldn't retrieve anything funny
-        </p>
+        <ErrorDisplay />
       </div>
     </div>
   );
